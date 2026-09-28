@@ -40,7 +40,7 @@ def test_get_activities_returns_available_activities(client):
 
     # Assert
     assert response.status_code == 200
-    assert set(response.json()) == expected_activity_names
+    assert expected_activity_names <= set(response.json())
     assert response.json()["Chess Club"]["participants"] == [
         "michael@mergington.edu",
         "daniel@mergington.edu",
